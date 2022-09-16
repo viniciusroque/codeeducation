@@ -6,10 +6,10 @@ RUN go mod init codeeducation
 
 COPY . .
 
-RUN go build -a main.go
+RUN go build -o hello.go
 
 
 FROM alpine:latest
 WORKDIR /apps
-COPY --from=builder /apps/main .
-CMD ["./main"]
+COPY --from=builder /apps/hello.go .
+CMD ["./hello.go"]
