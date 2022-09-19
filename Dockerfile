@@ -9,7 +9,7 @@ COPY . .
 RUN go build -o hello.go
 
 
-FROM alpine:latest
+FROM scratch
 WORKDIR /apps
 COPY --from=builder /apps/hello.go .
 CMD ["./hello.go"]
